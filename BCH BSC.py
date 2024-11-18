@@ -8,9 +8,9 @@ bch = bchlib.BCH(t=t, m=m)
 
 #Encode method
 def bch_encode(data):
-    data_bytes = bytearray(data, 'utf-8')  # Convert data to bytes
-    ecc = bch.encode(data_bytes)          # Compute the error correction code (ECC)
-    return data_bytes + ecc               # Combine data and ECC for transmission
+    data_bytes = bytearray(data, 'utf-8')
+    ecc = bch.encode(data_bytes)
+    return data_bytes + ecc
 
 #Decode method
 def bch_decode(corrupted_packet):
