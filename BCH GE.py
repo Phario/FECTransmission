@@ -51,7 +51,6 @@ class GEChannel:
         if random.random() < error_prob:
             byte = self._flip_bit(byte)
 
-        # Change state
         if self.state == "Good" and random.random() < self.p_gb:
             self.state = "Bad"
         elif self.state == "Bad" and random.random() < self.p_bg:
@@ -69,7 +68,7 @@ if __name__ == '__main__':
     encoded_data = bch_encode(message)
     print(f"Encoded Data (with ECC):     {list(encoded_data)}")
 
-    ge_channel = GEChannel(p_g=0.07, p_b=0.3, p_gb=0.2, p_bg=0.2)
+    ge_channel = GEChannel(p_g=0.3, p_b=0.3, p_gb=0.3, p_bg=0.3)
     received_data = ge_channel.process_message(encoded_data)
     print(f"Received Data (with errors): {list(received_data)}")
 
